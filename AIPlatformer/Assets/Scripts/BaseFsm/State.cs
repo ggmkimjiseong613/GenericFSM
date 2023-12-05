@@ -10,7 +10,7 @@ public abstract class State<T,U> where T : class where U : Enum
 
     protected int animBoolHash;
 
-    public State(StateMachine<T,U> _stateMachine, T _owner, string _animationBoolName)
+    public State(T _owner, StateMachine<T,U> _stateMachine, string _animationBoolName)
     {
         owner = _owner;
         stateMachine = _stateMachine;

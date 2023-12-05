@@ -6,7 +6,7 @@ public class PlayerState : State<PlayerFSM,PlayerStateEnum>
 {
     protected Rigidbody2D rigidbody;
     protected Animator animator;
-    public PlayerState(StateMachine<PlayerFSM,PlayerStateEnum> _stateMachine, PlayerFSM _owner, string _animationBoolName) : base(_stateMachine, _owner, _animationBoolName)
+    public PlayerState(PlayerFSM _owner, StateMachine<PlayerFSM,PlayerStateEnum> _stateMachine, string _animationBoolName) : base(_owner, _stateMachine, _animationBoolName)
     {
         rigidbody = owner.RigidbodyCompo;
         animator = owner.AnimatorCompo;
@@ -15,11 +15,13 @@ public class PlayerState : State<PlayerFSM,PlayerStateEnum>
     public override void Enter()
     {
         base.Enter();
+        animator.SetBool(animBoolHash, true);
     }
 
     public override void Exit()
     {
         base.Exit();
+        animator.SetBool(animBoolHash, false);
     }
 
     public override void Update()

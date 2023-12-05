@@ -15,6 +15,7 @@ public enum MonsterStateEnum
 {
     Idle,
     Move,
+    Attack,
 }
 public class StateMachine<T, U> where T : class where U : Enum
 {
